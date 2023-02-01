@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -157,6 +158,11 @@ class Payview : NestedScrollView, View.OnFocusChangeListener {
         btn_pay.setOnClickListener(onClickListener)
     }
 
+    fun setButtonTextAndBackground(text: String = "Pay", drawable: Drawable? = null) {
+        btn_pay.text = text
+        btn_pay.background = drawable
+    }
+
     /**
      * attributes init to components.
      * */
@@ -186,6 +192,7 @@ class Payview : NestedScrollView, View.OnFocusChangeListener {
         tev_card_month = this@Payview.findViewById(R.id.tev_card_month)
         tev_card_year = this@Payview.findViewById(R.id.tev_card_year)
         tev_card_cv = this@Payview.findViewById(R.id.tev_card_cv)
+        setButtonTextAndBackground()
         btn_pay = this@Payview.findViewById(R.id.btn_pay)
 
         rl_form.setBackgroundColor(cardBackgroundColor)
